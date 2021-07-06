@@ -42,7 +42,7 @@ class Client
     /**
      * @ORM\OneToMany(targetEntity=Commande::class, mappedBy="idClient")
      */
-    private $commandes;
+    private $Commandes;
 
     /**
      * @ORM\ManyToMany(targetEntity=Pharmacie::class, mappedBy="Clients")
@@ -51,7 +51,7 @@ class Client
 
     public function __construct()
     {
-        $this->commandes = new ArrayCollection();
+        $this->Commandes = new ArrayCollection();
         $this->pharmacies = new ArrayCollection();
     }
 
@@ -113,25 +113,25 @@ class Client
      */
     public function getCommandes(): Collection
     {
-        return $this->commandes;
+        return $this->Commandes;
     }
 
-    public function addCommande(Commande $commande): self
+    public function addCommande(Commande $Commande): self
     {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes[] = $commande;
-            $commande->setIdClient($this);
+        if (!$this->Commandes->contains($Commande)) {
+            $this->Commandes[] = $Commande;
+            $Commande->setIdClient($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): self
+    public function removeCommande(Commande $Commande): self
     {
-        if ($this->commandes->removeElement($commande)) {
+        if ($this->Commandes->removeElement($Commande)) {
             // set the owning side to null (unless already changed)
-            if ($commande->getIdClient() === $this) {
-                $commande->setIdClient(null);
+            if ($Commande->getIdClient() === $this) {
+                $Commande->setIdClient(null);
             }
         }
 

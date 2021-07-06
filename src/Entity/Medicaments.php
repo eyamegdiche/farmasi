@@ -35,29 +35,29 @@ class Medicaments
     private $qte;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Classification::class, inversedBy="medicaments")
+     * @ORM\ManyToOne(targetEntity=Classification::class, inversedBy="Medicaments")
      */
     private $classification;
 
     /**
      * @ORM\ManyToMany(targetEntity=Commande::class, mappedBy="idMedic")
      */
-    private $commandes;
+    private $Commandes;
 
     /**
      * @ORM\ManyToMany(targetEntity=Fornisseur::class, mappedBy="idMedi")
      */
-    private $fornisseurs;
+    private $Fornisseurs;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Pharmacie::class, mappedBy="medicaments")
+     * @ORM\ManyToMany(targetEntity=Pharmacie::class, mappedBy="Medicaments")
      */
     private $pharmacies;
 
     public function __construct()
     {
-        $this->commandes = new ArrayCollection();
-        $this->fornisseurs = new ArrayCollection();
+        $this->Commandes = new ArrayCollection();
+        $this->Fornisseurs = new ArrayCollection();
         $this->pharmacies = new ArrayCollection();
     }
 
@@ -119,23 +119,23 @@ class Medicaments
      */
     public function getCommandes(): Collection
     {
-        return $this->commandes;
+        return $this->Commandes;
     }
 
-    public function addCommande(Commande $commande): self
+    public function addCommande(Commande $Commande): self
     {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes[] = $commande;
-            $commande->addIdMedic($this);
+        if (!$this->Commandes->contains($Commande)) {
+            $this->Commandes[] = $Commande;
+            $Commande->addIdMedic($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): self
+    public function removeCommande(Commande $Commande): self
     {
-        if ($this->commandes->removeElement($commande)) {
-            $commande->removeIdMedic($this);
+        if ($this->Commandes->removeElement($Commande)) {
+            $Commande->removeIdMedic($this);
         }
 
         return $this;
@@ -146,23 +146,23 @@ class Medicaments
      */
     public function getFornisseurs(): Collection
     {
-        return $this->fornisseurs;
+        return $this->Fornisseurs;
     }
 
-    public function addFornisseur(Fornisseur $fornisseur): self
+    public function addFornisseur(Fornisseur $Fornisseur): self
     {
-        if (!$this->fornisseurs->contains($fornisseur)) {
-            $this->fornisseurs[] = $fornisseur;
-            $fornisseur->addIdMedi($this);
+        if (!$this->Fornisseurs->contains($Fornisseur)) {
+            $this->Fornisseurs[] = $Fornisseur;
+            $Fornisseur->addIdMedi($this);
         }
 
         return $this;
     }
 
-    public function removeFornisseur(Fornisseur $fornisseur): self
+    public function removeFornisseur(Fornisseur $Fornisseur): self
     {
-        if ($this->fornisseurs->removeElement($fornisseur)) {
-            $fornisseur->removeIdMedi($this);
+        if ($this->Fornisseurs->removeElement($Fornisseur)) {
+            $Fornisseur->removeIdMedi($this);
         }
 
         return $this;

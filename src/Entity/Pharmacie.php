@@ -40,24 +40,24 @@ class Pharmacie
     private $Clients;
 
     /**
-     * @ORM\ManyToMany(targetEntity=medicaments::class, inversedBy="pharmacies")
+     * @ORM\ManyToMany(targetEntity=Medicaments::class, inversedBy="pharmacies")
      */
-    private $medicaments;
+    private $Medicaments;
 
     /**
-     * @ORM\ManyToMany(targetEntity=fornisseur::class, inversedBy="pharmacies")
+     * @ORM\ManyToMany(targetEntity=Fornisseur::class, inversedBy="pharmacies")
      */
     private $Fornisseur;
 
     /**
-     * @ORM\ManyToOne(targetEntity=commande::class, inversedBy="pharmacies")
+     * @ORM\ManyToOne(targetEntity=Commande::class, inversedBy="pharmacies")
      */
-    private $commandes;
+    private $Commandes;
 
     public function __construct()
     {
         $this->Clients = new ArrayCollection();
-        $this->medicaments = new ArrayCollection();
+        $this->Medicaments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,49 +126,49 @@ class Pharmacie
     }
 
     /**
-     * @return Collection|medicaments[]
+     * @return Collection|Medicaments[]
      */
     public function getMedicaments(): Collection
     {
-        return $this->medicaments;
+        return $this->Medicaments;
     }
 
-    public function addMedicament(medicaments $medicament): self
+    public function addMedicament(Medicaments $medicament): self
     {
-        if (!$this->medicaments->contains($medicament)) {
-            $this->medicaments[] = $medicament;
+        if (!$this->Medicaments->contains($medicament)) {
+            $this->Medicaments[] = $medicament;
         }
 
         return $this;
     }
 
-    public function removeMedicament(medicaments $medicament): self
+    public function removeMedicament(Medicaments $medicament): self
     {
-        $this->medicaments->removeElement($medicament);
+        $this->Medicaments->removeElement($medicament);
 
         return $this;
     }
 
-    public function getFornisseur(): ?fornisseur
+    public function getFornisseur(): ?Fornisseur
     {
         return $this->Fornisseur;
     }
 
-    public function setFornisseur(?fornisseur $Fornisseur): self
+    public function setFornisseur(?Fornisseur $Fornisseur): self
     {
         $this->Fornisseur = $Fornisseur;
 
         return $this;
     }
 
-    public function getCommandes(): ?commande
+    public function getCommandes(): ?Commande
     {
-        return $this->commandes;
+        return $this->Commandes;
     }
 
-    public function setCommandes(?commande $commandes): self
+    public function setCommandes(?Commande $Commandes): self
     {
-        $this->commandes = $commandes;
+        $this->Commandes = $Commandes;
 
         return $this;
     }

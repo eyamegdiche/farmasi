@@ -27,11 +27,11 @@ class Classification
     /**
      * @ORM\OneToMany(targetEntity=Medicaments::class, mappedBy="classification")
      */
-    private $medicaments;
+    private $Medicaments;
 
     public function __construct()
     {
-        $this->medicaments = new ArrayCollection();
+        $this->Medicaments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,13 +56,13 @@ class Classification
      */
     public function getMedicaments(): Collection
     {
-        return $this->medicaments;
+        return $this->Medicaments;
     }
 
     public function addMedicament(Medicaments $medicament): self
     {
-        if (!$this->medicaments->contains($medicament)) {
-            $this->medicaments[] = $medicament;
+        if (!$this->Medicaments->contains($medicament)) {
+            $this->Medicaments[] = $medicament;
             $medicament->setClassification($this);
         }
 
@@ -71,7 +71,7 @@ class Classification
 
     public function removeMedicament(Medicaments $medicament): self
     {
-        if ($this->medicaments->removeElement($medicament)) {
+        if ($this->Medicaments->removeElement($medicament)) {
             // set the owning side to null (unless already changed)
             if ($medicament->getClassification() === $this) {
                 $medicament->setClassification(null);

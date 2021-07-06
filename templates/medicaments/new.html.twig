@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'template.html.twig' %}
 
 {% block title %}New Medicaments{% endblock %}
 
 {% block body %}
     <h1>Create new Medicaments</h1>
 
-    {{ include('medicaments/_form.html.twig') }}
+    {{ include('Medicaments/_form.html.twig') }}
 
-    <a href="{{ path('medicaments_index') }}">back to list</a>
+    <a href="{{ path('Medicaments_index') }}">back to list</a>
 {% endblock %}

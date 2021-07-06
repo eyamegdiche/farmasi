@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'template.html.twig' %}
 
 {% block title %}Fornisseur index{% endblock %}
 
@@ -15,14 +15,14 @@
             </tr>
         </thead>
         <tbody>
-        {% for fornisseur in fornisseurs %}
+        {% for Fornisseur in Fornisseurs %}
             <tr>
-                <td>{{ fornisseur.id }}</td>
-                <td>{{ fornisseur.nom }}</td>
-                <td>{{ fornisseur.tel }}</td>
+                <td>{{ Fornisseur.id }}</td>
+                <td>{{ Fornisseur.nom }}</td>
+                <td>{{ Fornisseur.tel }}</td>
                 <td>
-                    <a href="{{ path('fornisseur_show', {'id': fornisseur.id}) }}">show</a>
-                    <a href="{{ path('fornisseur_edit', {'id': fornisseur.id}) }}">edit</a>
+                    <a href="{{ path('Fornisseur_show', {'id': Fornisseur.id}) }}">show</a>
+                    <a href="{{ path('Fornisseur_edit', {'id': Fornisseur.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('fornisseur_new') }}">Create new</a>
+    <a href="{{ path('Fornisseur_new') }}">Create new</a>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'template.html.twig' %}
 
 {% block title %}Commande index{% endblock %}
 
@@ -15,14 +15,14 @@
             </tr>
         </thead>
         <tbody>
-        {% for commande in commandes %}
+        {% for Commande in Commandes %}
             <tr>
-                <td>{{ commande.id }}</td>
-                <td>{{ commande.mat }}</td>
-                <td>{{ commande.date ? commande.date|date('Y-m-d') : '' }}</td>
+                <td>{{ Commande.id }}</td>
+                <td>{{ Commande.mat }}</td>
+                <td>{{ Commande.date ? Commande.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('commande_show', {'id': commande.id}) }}">show</a>
-                    <a href="{{ path('commande_edit', {'id': commande.id}) }}">edit</a>
+                    <a href="{{ path('Commande_show', {'id': Commande.id}) }}">show</a>
+                    <a href="{{ path('Commande_edit', {'id': Commande.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('commande_new') }}">Create new</a>
+    <a href="{{ path('Commande_new') }}">Create new</a>
 {% endblock %}

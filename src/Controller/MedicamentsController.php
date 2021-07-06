@@ -11,22 +11,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/medicaments")
+ * @Route("/Medicaments")
  */
 class MedicamentsController extends AbstractController
 {
     /**
-     * @Route("/", name="medicaments_index", methods={"GET"})
+     * @Route("/", name="Medicaments_index", methods={"GET"})
      */
-    public function index(MedicamentsRepository $medicamentsRepository): Response
+    public function index(MedicamentsRepository $MedicamentsRepository): Response
     {
-        return $this->render('medicaments/index.html.twig', [
-            'medicaments' => $medicamentsRepository->findAll(),
+        return $this->render('Medicaments/index.html.twig', [
+            'Medicaments' => $MedicamentsRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="medicaments_new", methods={"GET","POST"})
+     * @Route("/new", name="Medicaments_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -39,27 +39,27 @@ class MedicamentsController extends AbstractController
             $entityManager->persist($medicament);
             $entityManager->flush();
 
-            return $this->redirectToRoute('medicaments_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('Medicaments_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('medicaments/new.html.twig', [
+        return $this->render('Medicaments/new.html.twig', [
             'medicament' => $medicament,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="medicaments_show", methods={"GET"})
+     * @Route("/{id}", name="Medicaments_show", methods={"GET"})
      */
     public function show(Medicaments $medicament): Response
     {
-        return $this->render('medicaments/show.html.twig', [
+        return $this->render('Medicaments/show.html.twig', [
             'medicament' => $medicament,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="medicaments_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="Medicaments_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Medicaments $medicament): Response
     {
@@ -69,17 +69,17 @@ class MedicamentsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('medicaments_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('Medicaments_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('medicaments/edit.html.twig', [
+        return $this->render('Medicaments/edit.html.twig', [
             'medicament' => $medicament,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="medicaments_delete", methods={"POST"})
+     * @Route("/{id}", name="Medicaments_delete", methods={"POST"})
      */
     public function delete(Request $request, Medicaments $medicament): Response
     {
@@ -89,6 +89,6 @@ class MedicamentsController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('medicaments_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('Medicaments_index', [], Response::HTTP_SEE_OTHER);
     }
 }

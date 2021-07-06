@@ -30,17 +30,17 @@ class Commande
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="commandes")
+     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="Commandes")
      */
     private $idClient;
 
     /**
-     * @ORM\ManyToMany(targetEntity=medicaments::class, inversedBy="commandes")
+     * @ORM\ManyToMany(targetEntity=Medicaments::class, inversedBy="Commandes")
      */
     private $idMedic;
 
     /**
-     * @ORM\OneToMany(targetEntity=Pharmacie::class, mappedBy="commandes")
+     * @ORM\OneToMany(targetEntity=Pharmacie::class, mappedBy="Commandes")
      */
     private $pharmacies;
 
@@ -92,14 +92,14 @@ class Commande
     }
 
     /**
-     * @return Collection|medicaments[]
+     * @return Collection|Medicaments[]
      */
     public function getIdMedic(): Collection
     {
         return $this->idMedic;
     }
 
-    public function addIdMedic(medicaments $idMedic): self
+    public function addIdMedic(Medicaments $idMedic): self
     {
         if (!$this->idMedic->contains($idMedic)) {
             $this->idMedic[] = $idMedic;
@@ -108,7 +108,7 @@ class Commande
         return $this;
     }
 
-    public function removeIdMedic(medicaments $idMedic): self
+    public function removeIdMedic(Medicaments $idMedic): self
     {
         $this->idMedic->removeElement($idMedic);
 

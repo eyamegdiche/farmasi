@@ -30,7 +30,7 @@ class Fornisseur
     private $tel;
 
     /**
-     * @ORM\ManyToMany(targetEntity=medicaments::class, inversedBy="fornisseurs")
+     * @ORM\ManyToMany(targetEntity=Medicaments::class, inversedBy="Fornisseurs")
      */
     private $idMedi;
 
@@ -75,14 +75,14 @@ class Fornisseur
     }
 
     /**
-     * @return Collection|medicaments[]
+     * @return Collection|Medicaments[]
      */
     public function getIdMedi(): Collection
     {
         return $this->idMedi;
     }
 
-    public function addIdMedi(medicaments $idMedi): self
+    public function addIdMedi(Medicaments $idMedi): self
     {
         if (!$this->idMedi->contains($idMedi)) {
             $this->idMedi[] = $idMedi;
@@ -91,7 +91,7 @@ class Fornisseur
         return $this;
     }
 
-    public function removeIdMedi(medicaments $idMedi): self
+    public function removeIdMedi(Medicaments $idMedi): self
     {
         $this->idMedi->removeElement($idMedi);
 

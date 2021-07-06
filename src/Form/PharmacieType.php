@@ -16,9 +16,9 @@ class PharmacieType extends AbstractType
             ->add('login')
             ->add('mdp')
             ->add('Clients')
-            ->add('medicaments')
+            ->add('Medicaments')
             ->add('Fornisseur')
-            ->add('commandes')
+            ->add('Commandes')
         ;
     }
 

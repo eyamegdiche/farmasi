@@ -16,8 +16,8 @@ class MedicamentsType extends AbstractType
             ->add('pv')
             ->add('qte')
             ->add('classification')
-            ->add('commandes')
-            ->add('fornisseurs')
+            ->add('Commandes')
+            ->add('Fornisseurs')
             ->add('pharmacies')
         ;
     }
