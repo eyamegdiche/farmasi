@@ -337,10 +337,10 @@
             "./src/Kernel.php"
         ]
     },
-    "symfony/http-Client": {
+    "symfony/http-client": {
         "version": "v4.4.26"
     },
-    "symfony/http-Client-contracts": {
+    "symfony/http-client-contracts": {
         "version": "v2.4.0"
     },
     "symfony/http-foundation": {
