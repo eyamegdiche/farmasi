@@ -1,8 +1,36 @@
-{% extends 'base.html.twig' %}
+{% block head %}
 
-{% block title %}Log in!{% endblock %}
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"href="{{asset('assets/auth/fonts/icomoon/style.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/auth/css/owl.carousel.min.css')}}">
+
+    <!-- Bootstrap CSS -->
+         <link href="{{asset('assets/auth/css/bootstrap.min.css')}}" rel="stylesheet">
+    
+    <!-- Style -->
+  <link href="{{asset('assets/auth/css/style.css')}}" rel="stylesheet">
+  <title>Farmasi|Login</title>
+{% endblock %}
 
 {% block body %}
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 order-md-2">
+          <img src="assets/auth/images/SIGN_IN.png" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              
+              
+            </div>
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -14,11 +42,15 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in to <strong>Farmasi</strong></h1>
+    <div class="form-group first">
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    </div>
+    <div class="form-group last mb-4">
     <label for="inputPassword">Password</label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    </div>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -35,8 +67,14 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
+    <button class="btn  btn-block  aa" type="submit">
         Sign in
     </button>
 </form>
+  </div>
+          </div>
+          
+        </div>
+    </div>
+  
 {% endblock %}

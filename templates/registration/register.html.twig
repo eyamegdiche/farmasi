@@ -1,17 +1,57 @@
-{% extends 'base.html.twig' %}
+{% block head %}
 
-{% block title %}Register{% endblock %}
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"href="{{asset('assets/auth/fonts/icomoon/style.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/auth/css/owl.carousel.min.css')}}">
+
+    <!-- Bootstrap CSS -->
+         <link href="{{asset('assets/auth/css/bootstrap.min.css')}}" rel="stylesheet">
+    
+    <!-- Style -->
+  <link href="{{asset('assets/auth/css/style.css')}}" rel="stylesheet">
+  <title>Farmasi|Register</title>
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 order-md-2">
+          <img src="assets/auth/images/LOGIN.png" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+              
+              
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+     <h1 class="h3 mb-3 font-weight-normal">Please sign in to <strong>Farmasi</strong></h1>
+    <div class="form-group first">
+    <label for="inputEmail">Email</label>
+    
+        {{ form_row(registrationForm.email, { 'attr' : { 'class': 'form-control' } }) }}
+        </div>
+        
+        
+        <div class="form-group last mb-4">
 
-        <button type="submit" class="btn">Register</button>
+        {{ form_row(registrationForm.plainPassword , { 'attr' : { 'class': 'form-control' } }) }}
+        </div>
+        
+    
+
+        <button type="submit" class="btn btn-block  aa">Register</button>
     {{ form_end(registrationForm) }}
+    </div>
+          </div>
+          
+        </div>
+    </div>
 {% endblock %}
