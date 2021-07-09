@@ -5,30 +5,27 @@
 {% block body %}
     <h1>Medicaments</h1>
 
-    <table class="table">
+    <table class="table table-condensed">
         <tbody>
+ 
             <tr>
-                <th>Id</th>
-                <td>{{ medicament.id }}</td>
-            </tr>
-            <tr>
-                <th>Pa</th>
+                <th>Prix achat</th>
                 <td>{{ medicament.pa }}</td>
             </tr>
             <tr>
-                <th>Pv</th>
+                <th>Prix vente</th>
                 <td>{{ medicament.pv }}</td>
             </tr>
             <tr>
-                <th>Qte</th>
+                <th>Quantité</th>
                 <td>{{ medicament.qte }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('Medicaments_index') }}">back to list</a>
+    <a href="{{ path('Medicaments_index') }}">Retour au list</a>
 
-    <a href="{{ path('Medicaments_edit', {'id': medicament.id}) }}">edit</a>
+    <a href="{{ path('Medicaments_edit', {'id': medicament.id}) }}">Modifier</a>
 
     {{ include('Medicaments/_delete_form.html.twig') }}
 {% endblock %}

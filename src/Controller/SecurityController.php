@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -33,4 +34,17 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+     /**
+     * @Route("/dash", name="dashboard")
+     */
+    public function dash(Request $request)
+    {
+        $session = $request->getSession();
+        $name = $session->get('name');
+        return $this->render('security/dashboard.html.twig', [
+            'name' => $name,
+            
+        ]);
+    }
+
 }

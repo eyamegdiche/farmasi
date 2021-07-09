@@ -1,11 +1,11 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}New Pharmacie{% endblock %}
+{% block title %}nouvelle Pharmacie{% endblock %}
 
 {% block body %}
-    <h1>Create new Pharmacie</h1>
+    <h1>Ajouter une nouvelle Pharmacie</h1>
 
     {{ include('pharmacie/_form.html.twig') }}
 
-    <a href="{{ path('pharmacie_index') }}">back to list</a>
+    <a href="{{ path('pharmacie_index') }}">retour a la liste</a>
 {% endblock %}
