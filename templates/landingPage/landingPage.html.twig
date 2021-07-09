@@ -1,0 +1,41 @@
+
+{% block head %}
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"href="{{asset('assets/auth/fonts/icomoon/style.css')}}">
+
+    <link rel="stylesheet" href="{{asset('assets/auth/css/owl.carousel.min.css')}}">
+
+    <!-- Bootstrap CSS -->
+         <link href="{{asset('assets/auth/css/bootstrap.min.css')}}" rel="stylesheet">
+    
+    <!-- Style -->
+  <link href="{{asset('assets/auth/css/style.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 order-md-2">
+          <img alt="" src="{{asset('assets/auth/images/index.png')}}">
+        </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+                 <div class="container px-4 px-lg-5 text-center">
+                 </br></br></br>
+                     <h1 class="mb-1">Welcome to FARMASI</h1>
+                     </br>
+                     <a class="btn  " href="{{ path('app_login') }}">Login</a>
+                     <a class="btn " href="{{ path('app_register') }}">Sign in</a>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{% endblock %}
